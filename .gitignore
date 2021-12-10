@@ -35,3 +35,10 @@ bin/
 build/
 /bin1/
 java/build/**
+
+## BlueJ
+#Doc Ordner
+**/doc
+*.pkh
+*.ctxt
+*.bluej
