@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) {
         Scanner kbScanner = new Scanner(System.in);
         
-        System.out.println("Please select what you wish to order");
+        System.out.println("Please select what you wish to order (By typing the name of the item");
         System.out.println("1. Chicken Parmesian");
         System.out.println("2. Chicken Enchiladas");
         System.out.println("3. Meatballs");
@@ -38,7 +38,7 @@ public class App {
                         new Ingredient("Corn Tortillas", 10, Units.items),
                         new Ingredient("Medium Green Onions", 2, Units.items),
                         
-                    }, 4); 
+                    }, 5); 
                     
                     break;
                     
@@ -54,7 +54,7 @@ public class App {
                         new Ingredient("Stale Italian Bread, Crumbled", 2, Units.cups),
                         new Ingredient("Lukewarm Water", 1.5, Units.cups),
                         new Ingredient("Olive Oil", 1, Units.cups),
-                    }, 4); 
+                    }, 8); 
             }
         }      
     }
