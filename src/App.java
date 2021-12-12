@@ -1,17 +1,61 @@
 import lib.Units;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        // **This is meant to be an example for Joe to see for the interface.**
-
-        // Creates a new recipe of "Chicken Parmesian" with one ingredient, "boneless skinless chicken breast halves".
-        Recipe ChickenParmesian = new Recipe("Chicken Parmessian", new Ingredient[] {new Ingredient("boneless skinless chicken breast halves", 8, Units.items)}, 4); 
-
-
-        // Calls a method that calculates the amount of ingredients based upon the amount of people that need to be fed.
-        Recipe CalculatedChickenParm = Recipe.CalculateIngredients(ChickenParmesian, 5);
+        Scanner kbScanner = new Scanner(System.in);
         
-        // Prints out a formatted recipe to the console
-        CalculatedChickenParm.PrintRecipe();
+        System.out.println("Please select what you wish to order");
+        System.out.println("1. Chicken Parmesian");
+        System.out.println("2. Chicken Enchiladas");
+        System.out.println("3. Meatballs");
+        
+        String MenuChoice = kbScanner.next();
+    
+        Recipe recipeToSend;
+        switch(MenuChoice){
+            
+                case "Chicken Parmesian": //Chicken Parmesian
+                    recipeToSend = new Recipe("Chicken Parmesian",new Ingredient[] {
+                        new Ingredient("boneless skinless chicken breast halves", 4, Units.items),
+                        new Ingredient("salt", 1, Units.tablespoons),
+                        new Ingredient("Italian Breadcrumbs", 0.5, Units.cups),
+                        new Ingredient("Egg", 1, Units.items),
+                        new Ingredient("Butter", 4, Units.tablespoons),
+                        new Ingredient("Mozzerella Cheese", 4, Units.slices),
+                        new Ingredient("Grated Paremesian Cheese", 1, Units.tablespoons),
+                        
+                    }, 4); 
+                    
+                    break;
+                    
+                case "Chicken Enchiladas": //Chicken Enchiladas
+                    recipeToSend = new Recipe("Chicken Enchiladas",new Ingredient[] {
+                        new Ingredient("Traditional Chicken and Cheese Enchilada Soup", 18.5, Units.oz),
+                        new Ingredient("Hot Enchilada Sauce", 10, Units.oz),
+                        new Ingredient("Chicken", 1, Units.pounds),
+                        new Ingredient("Cheese", 1, Units.pounds),
+                        new Ingredient("Corn Tortillas", 10, Units.items),
+                        new Ingredient("Medium Green Onions", 2, Units.items),
+                        
+                    }, 4); 
+                    
+                    break;
+                    
+                case "Meatballs": //Meatballs
+                    recipeToSend = new Recipe("Meatballs",new Ingredient[] {
+                        new Ingredient("Ground Beef", 1, Units.pounds),
+                        new Ingredient("Ground Veal", 0.5, Units.pounds),
+                        new Ingredient("Ground Pork", 0.5, Units.pounds),
+                        new Ingredient("Cloves Garlic, Minced", 2, Units.items),
+                        new Ingredient("Eggs", 2, Units.items),
+                        new Ingredient("Freshlly Grated Romano Cheese", 1, Units.cups),
+                        new Ingredient("Chopped Italian Flat Leaf Parsley Salt and Ground Black Pepper to Taste", 1.5, Units.tablespoons),
+                        new Ingredient("Stale Italian Bread, Crumbled", 2, Units.cups),
+                        new Ingredient("Lukewarm Water", 1.5, Units.cups),
+                        new Ingredient("Olive Oil", 1, Units.cups),
+                    }, 4); 
+            }
+        }      
     }
-}
+
