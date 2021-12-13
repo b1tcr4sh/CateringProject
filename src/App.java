@@ -13,7 +13,7 @@ public class App {
         System.out.println("2. Chicken Enchiladas");
         System.out.println("3. Meatballs");
         
-        String MenuChoice = kbScanner.next();
+        String MenuChoice = kbScanner.nextLine();
     
         Recipe recipeToSend = new Recipe("", new Ingredient[] {}, 0);
         switch(MenuChoice){
@@ -69,7 +69,7 @@ public class App {
 
             calculateRecipe.PrintRecipe();
             
-            System.out.println("Would you like to end here? If so type exit!");
+            System.out.println("Would you like to end here? If so type exit!  Click enter to continue.");
             
             String s1 = kbScanner.nextLine();
                 if (s1.equals("exit")) {
