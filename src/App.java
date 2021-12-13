@@ -4,9 +4,12 @@ import java.util.*;
 public class App {
     public static void main(String[] args) {
         Scanner kbScanner = new Scanner(System.in);
-        
-        System.out.println("Please select what you wish to order (By typing the name of the item");
-        System.out.println("1. Chicken Parmesian");
+       
+
+     while (true) {
+       
+        System.out.println("Please select what you wish to order (By typing the name of the item)");
+        System.out.println("1. Chicken Parmesian ");
         System.out.println("2. Chicken Enchiladas");
         System.out.println("3. Meatballs");
         
@@ -55,6 +58,8 @@ public class App {
                         new Ingredient("Lukewarm Water", 1.5, Units.cups),
                         new Ingredient("Olive Oil", 1, Units.cups),
                     }, 8); 
+
+                    break;
             }
 
             System.out.println("How many people are you feeding?");
@@ -63,9 +68,21 @@ public class App {
             Recipe calculateRecipe = Recipe.CalculateIngredients(recipeToSend, feedsThisManyPeople);
 
             calculateRecipe.PrintRecipe();
+            
+            System.out.println("Would you like to end here? If so type exit!");
+            
+            String s1 = kbScanner.nextLine();
+                if (s1.equals("exit")) {
+                 break;
+                 }
+                 System.out.println("Insert your answer here.");
+              String answer = kbScanner.nextLine();
+              if(answer.equals("exit")){
+                  break;
+              }
+          }
+        kbScanner.close();
 
-
-            kbScanner.close();
-        }      
-    }
+     }      
+ }
 
