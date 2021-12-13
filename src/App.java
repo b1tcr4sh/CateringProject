@@ -2,17 +2,43 @@ import lib.Units;
 import java.util.*;
 
 public class App {
+    private static Scanner kbScanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner kbScanner = new Scanner(System.in);
        
 
      while (true) {
        
         System.out.println("Please select what you wish to order (By typing the name of the item)");
-        System.out.println("1. Chicken Parmesian ");
-        System.out.println("2. Chicken Enchiladas");
-        System.out.println("3. Meatballs");
+        System.out.println("1. Chicken Parmesian (Serves 4 people per serving)");
+        System.out.println("2. Chicken Enchiladas (Serves 5 people per serving");
+        System.out.println("3. Meatballs (Serves 8 people per serving");
         
+        Recipe recipeToSend = CollectMenuItem();
+
+            System.out.println("How many people are you feeding?");
+            int feedsThisManyPeople = kbScanner.nextInt();
+
+            Recipe calculateRecipe = Recipe.CalculateIngredients(recipeToSend, feedsThisManyPeople);
+
+            calculateRecipe.PrintRecipe();
+            
+            System.out.println("Would you like to end here? If so type exit!  Click enter to continue.");
+            
+            String s1 = kbScanner.nextLine();
+                if (s1.equals("exit")) {
+                 break;
+                 }
+                 System.out.println("Insert your answer here.");
+              String answer = kbScanner.nextLine();
+              if(answer.equals("exit")){
+                  break;
+              }
+          }
+        kbScanner.close();
+
+     }
+
+    private static Recipe CollectMenuItem() {
         String MenuChoice = kbScanner.nextLine();
     
         Recipe recipeToSend = new Recipe("", new Ingredient[] {}, 0);
@@ -60,29 +86,13 @@ public class App {
                     }, 8); 
 
                     break;
+
+                default:
+                    System.out.println("Unrecognized Recipe, please try again");
+                    CollectMenuItem();
+                    break;
             }
-
-            System.out.println("How many people are you feeding?");
-            int feedsThisManyPeople = kbScanner.nextInt();
-
-            Recipe calculateRecipe = Recipe.CalculateIngredients(recipeToSend, feedsThisManyPeople);
-
-            calculateRecipe.PrintRecipe();
-            
-            System.out.println("Would you like to end here? If so type exit!  Click enter to continue.");
-            
-            String s1 = kbScanner.nextLine();
-                if (s1.equals("exit")) {
-                 break;
-                 }
-                 System.out.println("Insert your answer here.");
-              String answer = kbScanner.nextLine();
-              if(answer.equals("exit")){
-                  break;
-              }
-          }
-        kbScanner.close();
-
-     }      
+        return recipeToSend;
+    }      
  }
 
