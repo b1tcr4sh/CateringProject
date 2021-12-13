@@ -12,7 +12,7 @@ public class App {
         
         String MenuChoice = kbScanner.next();
     
-        Recipe recipeToSend;
+        Recipe recipeToSend = new Recipe("", new Ingredient[] {}, 0);
         switch(MenuChoice){
             
                 case "Chicken Parmesian": //Chicken Parmesian
@@ -56,6 +56,16 @@ public class App {
                         new Ingredient("Olive Oil", 1, Units.cups),
                     }, 8); 
             }
+
+            System.out.println("How many people are you feeding?");
+            int feedsThisManyPeople = kbScanner.nextInt();
+
+            Recipe calculateRecipe = Recipe.CalculateIngredients(recipeToSend, feedsThisManyPeople);
+
+            calculateRecipe.PrintRecipe();
+
+
+            kbScanner.close();
         }      
     }
 
